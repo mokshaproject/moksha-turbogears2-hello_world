@@ -69,6 +69,9 @@ setup(
 
     [paste.app_install]
     main = pylons.util:PylonsInstaller
+
+    [moksha.producer]
+    hello = tutorial.producers:HelloWorldProducer
     """,
     dependency_links=[
         "http://www.turbogears.org/2.1/downloads/current/"
