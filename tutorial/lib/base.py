@@ -10,6 +10,8 @@ import tutorial.model as model
 
 __all__ = ['BaseController']
 
+import tutorial.widgets
+from moksha.wsgi.ext.turbogears import global_resources
 
 class BaseController(TGController):
     """
@@ -28,4 +30,8 @@ class BaseController(TGController):
 
         request.identity = request.environ.get('repoze.who.identity')
         tmpl_context.identity = request.identity
+
+        tmpl_context.notification_widget = tutorial.widgets.PopupNotification
+        tmpl_context.moksha_global_resources = global_resources
+
         return TGController.__call__(self, environ, start_response)

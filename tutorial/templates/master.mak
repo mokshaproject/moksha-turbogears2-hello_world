@@ -12,6 +12,9 @@
   ${self.main_menu()}
   ${self.content_wrapper()}
   ${self.footer()}
+
+  ${tmpl_context.notification_widget.display() |n}
+  ${tmpl_context.moksha_global_resources() | n}
 </body>
 
 <%def name="content_wrapper()">
