@@ -32,7 +32,11 @@ def make_app(global_conf, full_stack=True, **app_conf):
     
    
     """
-    app = make_base_app(global_conf, full_stack=True, **app_conf)
+
+    from moksha.wsgi.middleware import make_moksha_middleware
+    wrap_app = lambda app: make_moksha_middleware(app, app_conf)
+    app = make_base_app(global_conf, full_stack=True,
+                        wrap_app=wrap_app, **app_conf)
     
     # Wrap your base TurboGears 2 application with custom middleware here
     
