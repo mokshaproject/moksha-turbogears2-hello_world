@@ -1,0 +1,4 @@
+recursive-include tutorial/public *
+include tutorial/public/favicon.ico
+recursive-include tutorial/i18n *
+recursive-include tutorial/templates *
